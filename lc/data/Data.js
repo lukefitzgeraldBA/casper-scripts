@@ -15,6 +15,7 @@ function Data() {
 	var productionDomain = 'http://lecreuset.com/';
 	var adminUrl = 'admin';
 	var adminSystemConfigUrl = 'admin/system_config';
+	var customerAccountLoginUrl = 'customer/account/login'
 	var un = 'luke.fitzgerald@blueacorn.com';
 	var pw = 'pass4luke';
 	var httpUn = 'lcoaadmin';
@@ -26,6 +27,24 @@ function Data() {
 	var configProd1 = 'round-dutch-oven';
 	var configProd2 = 'waiters-friend';
 	var configProd3 = 'braiser';
+	var configProd4 = 'oval-dutch-oven';
+	var singleConfigProd1 = 'signature-stainless-steel-knob';
+	var singleConfigProd2 = 'revolution-spatula-spoon';
+	var singleConfigProd3 = 'zen-kettle';
+	var simpleProd1 = 'revolution-potato-masher';
+	var simpleProd2 = 'stainless-steel-measuring-spoons';
+	var simpleProd3 = 'nonstick-stockpot';
+	var fn = 'Luke';
+	var ln = 'Fitzgerald';
+	var email = 'luke.fitzgerald@blueacorn.com';
+	var address = '145 Williman St.';
+	var city = 'Charleston';
+	var state = 'South Carolina';
+	var zip = '29403';
+	var country = 'United States';
+	var phone = '8779442583';
+	var ccNum = '6011111111111117';
+	var ccvNum = '123';
 
 	this.getLocalDomain = function() {
 		return localDomain;
@@ -46,6 +65,10 @@ function Data() {
 	this.getAdminSystemConfig = function() {
 		return adminSystemConfigUrl;
 	};	
+
+	this.getCustomerAccountLoginUrl = function() {
+		return customerAccountLoginUrl;
+	};
 
 	this.getUn = function() {
 		return un;
@@ -89,5 +112,77 @@ function Data() {
 
 	this.getConfigProd3 = function() {
 		return configProd3;
+	};
+
+	this.getConfigProd4 = function() {
+		return configProd4;
+	};
+
+	this.getSingleConfigProd1 = function() {
+		return singleConfigProd1;
+	};
+
+	this.getSingleConfigProd2 = function() {
+		return singleConfigProd2;
+	};
+
+	this.getSingleConfigProd3 = function() {
+		return singleConfigProd3;
+	};
+
+	this.getSimpleProd1 = function() {
+		return simpleProd1;
+	};
+
+	this.getSimpleProd2 = function() {
+		return simpleProd2;
+	};
+
+	this.getSimpleProd3 = function() {
+		return simpleProd3;
+	};
+
+	this.getFn = function() {
+		return fn;
+	};
+
+	this.getLn = function() {
+		return ln;
+	};
+
+	this.getEmail = function() {
+		return email;
+	};
+
+	this.getAddress = function() {
+		return address;
+	};
+
+	this.getCity = function() {
+		return city;
+	};
+
+	this.getState = function() {
+		return state;
+	};
+
+	this.getZip = function() {
+		return zip;
+	};
+
+	this.getCountry = function() {
+		return country;
+	};
+
+	this.getPhone = function() {
+		return phone;
+	};
+
+	this.getCcNum = function() {
+		return ccNum;
+	};
+
+	this.getCcvNum = function() {
+		return ccvNum;
 	};
 };

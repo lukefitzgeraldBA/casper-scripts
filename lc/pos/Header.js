@@ -13,59 +13,120 @@
 //enables the use of xpath to find selectors
 var x = require('casper').selectXPath;
 
-//set screen for better screen shots
-casper.options.viewportSize = {width: 1940, height: 1080};
+function Header() {
+	var logo = '#logo-copy';
+	var searchFieldPath = '#search';
+	var searchButtonPath =  '#search_mini_form > div.input-box > button > svg';
+	var storeLocatorLink = 'body > div.wrapper > div.page > div.header-language-background > div > ul > a > li';
+	var communityDropdown = 'body > div.wrapper > div.page > div.header-language-background > div > ul > li';
+	var signInLink = 'body > div.wrapper > div.page > div.header-language-background > div > ul > div > li.sign-in > a > span.label';
+	var wishlistLink = 'body > div.wrapper > div.page > div.header-language-background > div > ul > div > li.wishlist > a';
+	var miniCart = '#header > div.page-header-container > div.right.table-cell > div > a';
+	var miniCartArrow = '#header > div.page-header-container > div.right.table-cell > div > a > span.icon-arrow-down';
+	var miniCartNumberBubble = '#header > div.page-header-container > div.right.table-cell > div > a > span.count';
+	var miniCartIcon = '#header > div.page-header-container > div.right.table-cell > div > a > span.icon-cart';
+	var miniCartSuccessMessage = '#minicart-success-message';
+	var getOpenMiniCart = '#header > div.page-header-container > div.right.table-cell > div > a.skip-active';
+	var getClosedMiniCart = '#header > div.page-header-container > div.right.table-cell > div > a:not(.skip-active)';
+	var miniCartEditCartButton = '#header-cart > div > div > div.minicart-wrapper > div > div.minicart-actions.bottom > div > a.cart-link';
+	var miniCartCheckoutButton = '#header-cart > div > div > div.minicart-wrapper > div > div.minicart-actions.bottom > div > a.checkout-button';
+	var miniCartSubtotal = '#header-cart > div > div > div.minicart-wrapper > div > div.minicart-actions.bottom > div > div > p > span.price';
+	var miniCartProductGrid = '#cart-sidebar';
+	var miniCartProducts = '#cart-sidebar > li';
+	var miniCartProductsName = '#cart-sidebar > li > div > div > p.product-name > a';
+	var miniCartProductsQty = '#cart-sidebar > li > div > div > div > span.qty-wrapper';
+	var miniCartProductsPrice = '#cart-sidebar > li > div > div > div > span.info-wrappe';
+	var miniCartProductsOptions = '#cart-sidebar > li.item.odd > div > div > p.item-options > span';
 
-function HeaderPage() {
-	//declare variables
-	var URL = 'http://nativesite.dev';
-	var pathToLogo = x('//*[@id="header"]/div/a/img[1]');
-	var womenLinkPath = x('//*[@id="nav"]/ol/li[1]/a');
-	var menLinkPath = x('//*[@id="nav"]/ol/li[2]/a');
-	var accessoriesLinkPath = x('//*[@id="nav"]/ol/li[3]/a');
-	var homeAndDecorLinkPath = x('//*[@id="nav"]/ol/li[4]/a');
-	var saleLinkPath = x('//*[@id="nav"]/ol/li[5]/a');
-	var vipLinkPath = x('//*[@id="nav"]/ol/li[6]/a');
-
-	var searchFieldPath = 'input.input-text.required-entry';
-	var searchButtonPath =  'button.button.search-button';
-
-	//get methods
-	this.getURL = function(){
-		return URL;
+	this.getLogo = function(){
+		return logo;
 	};
 
-	this.getPathToLogo = function(){
-		return pathToLogo;
+	this.getSearchFieldPath = function(){
+		return searchFieldPath;
 	};
 
-	this.getWomenLinkPath = function(){
-		return womenLinkPath;
+	this.getSearchButtonPath = function(){
+		return searchButtonPath;
 	};
 
-	this.getMenLinkPath = function(){
-		return menLinkPath;
+	this.getStoreLocatorLink = function() {
+		return storeLocatorLink;
 	};
 
-	this.getaccessoriesLinkPath = function(){
-		return accessoriesLinkPath;
+	this.getCommunityDropdown = function() {
+		return communityDropdown;
 	};
 
-	this.gethomeAndDecorLinkPath = function(){
-		return homeAndDecorLinkPath;
+	this.getSignInLink = function() {
+		return signInLink;
 	};
 
-	this.getsaleLinkPath = function(){
-		return saleLinkPath;
+	this.getWishlistLink = function() {
+		return wishlistLink;
 	};
 
-	this.getvipLinkPath = function(){
-		return vipLinkPath;
+	this.getMiniCartArrow = function() {
+		return miniCartArrow;
 	};
 
-	this.EnterSearchTerms = function(searchTerms) {
-		//enter terms in search field
-		casper.sendKeys(searchFieldPath, searchTerms);
-		casper.click(searchButtonPath);
+	this.getMiniCartNumberBubble = function() {
+		return miniCartNumberBubble;
+	};
+
+	this.getMiniCartIcon = function() {
+		return miniCartIcon;
+	};
+
+	this.getMiniCartSuccessMessage = function() {
+		return miniCartSuccessMessage;
+	};
+
+	this.getMiniCart = function() {
+		return miniCart;
+	};
+
+	this.getOpenMiniCart = function() {
+		return getOpenMiniCart;
+	};
+
+	this.getClosedMiniCart = function() {
+		return getClosedMiniCart;
+	};
+
+	this.getMiniCartEditCartButton = function() {
+		return miniCartEditCartButton;
+	};
+
+	this.getMiniCartCheckoutButton = function() {
+		return miniCartCheckoutButton;
+	};
+
+	this.getMiniCartSubtotal = function() {
+		return miniCartSubtotal;
+	};
+
+	this.getMiniCartProductGrid = function() {
+		return miniCartProductGrid;
+	};
+
+	this.getMiniCartProducts = function() {
+		return miniCartProducts;
+	};
+
+	this.getMiniCartProductsQty = function() {
+		return miniCartProductsQty;
+	};
+
+	this.getMiniCartProductsPrice = function() {
+		return miniCartProductsPrice;
+	};
+
+	this.getMiniCartProductsName = function() {
+		return miniCartProductsName;
+	};
+
+	this.getMiniCartProductsOptions = function() {
+		return miniCartProductsOptions;
 	};
 };
