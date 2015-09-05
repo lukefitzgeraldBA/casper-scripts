@@ -49,4 +49,14 @@ function CommonTests() {
 	this.getRandomInt = function(max, min) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+
+	this.assertUrlMatch = function(expectedUrl, successMessage) {
+		casper.then(function() {
+			casper.test.assertUrlMatch(expectedUrl, successMessage);
+		});
+	};
+
+	this.clearCookies = function() {
+		phantom.clearCookies();
+	};
 }
