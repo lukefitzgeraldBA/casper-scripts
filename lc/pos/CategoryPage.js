@@ -17,17 +17,50 @@ casper.options.viewportSize = {width: 1940, height: 1080};
 
 function CategoryPage() {
 	//declare variables
-	var URL = 'http://nativesite.dev/men/shirts.html';
+	var url = '';	
+	var filterBar = '#amshopby-page-container > div.block.block-layered-nav.amshopby-filters-top';
+	var subCatListElements = '#amshopby-page-container > div.sub-categories > div > ul > li';
+	var catPageHeader = '#amshopby-page-container > div.hero-wrapper > div.page-title.category-title > h1';
+	var twoColumnDisplay = '#amshopby-page-container > div.category-products > div.toolbar > div.view-mode > ul.two-column';
+	var fourColumnDisplay = '#amshopby-page-container > div.category-products > div.toolbar > div.view-mode > ul.four-column';
+	var productListElements = '#amshopby-page-container > div.category-products > ul > li';
+	var showOptions = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > select > option';
+	var numDisplayed = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > div > span > span.ba-shiv-content';
+	var showDropdown = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > div > span';
+	var show24 = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > div.ba-select.ba-select-box.ba-over.open > div > ul > li:nth-child(1)';
+	var show48 = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > div.ba-select.ba-select-box.ba-over.open > div > ul > li:nth-child(2)';
+	var showAll = '#amshopby-page-container > div.category-products > div.toolbar > div.pager > div > div > div > div.ba-select.ba-select-box.ba-over.open > div > ul > li:nth-child(3)';
+	var overlay = '#amshopby-page-container > div.amshopby-overlay';
+
+
 	var descriptionPath = 'div.product-collateral.toggle-content.tabs';
 	var whishListMsgPath = 'li.success-msg';
 	var OlPath = 'ol#products-list';
 	var UlPath = 'ul.products-grid.products-grid--max-4-col.first.last.odd';
 	var productListPath = 'body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-view > div > ul';
-	var pathToLogo = x('//*[@id="header"]/div/a/img[1]');
 	var sortSelectorPath = x('//*[@id="top"]/body/div/div[2]/div[3]/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/div/selectv');
-	//get and set methods
+
+	this.getShow24 = function() {
+		return show24;
+	};
+
+	this.getShow48 = function() {
+		return show48;
+	};
+
+	this.getShowAll = function() {
+		return showAll;
+	};
+
+	this.getOverlay = function() {
+		return overlay;
+	};
+
+
+
+
 	this.getURL = function() {
-		return URL;
+		return url;
 	};
 
 	this.getDescripPath = function() {
@@ -52,6 +85,38 @@ function CategoryPage() {
 
 	this.getSortSelectPath = function(){
 		return sortSelectorPath;
+	};
+
+	this.getFilterBar = function() {
+		return filterBar;
+	};
+
+	this.getSubCatListElements = function() {
+		return subCatListElements;
+	};
+
+	this.getCatPageHeader = function() {
+		return catPageHeader;
+	};
+
+	this.getTwoColumnDisplay = function() {
+		return twoColumnDisplay;
+	};
+
+	this.getFourColumnDisplay = function() {
+		return fourColumnDisplay;
+	};
+
+	this.getProductListElements = function() {
+		return productListElements;
+	};
+
+	this.getNumDisplayed = function() {
+		return numDisplayed;
+	};
+
+	this.getShowDropdown = function() {
+		return showDropdown;
 	};
 
 	this.getProductListCT = function() {

@@ -43,8 +43,17 @@ function Data() {
 	var zip = '29403';
 	var country = 'United States';
 	var phone = '8779442583';
-	var ccNum = '6011111111111117';
-	var ccvNum = '123';
+	//var ccNum = '6011111111111117';
+	var ccNum = '5474151782947615';
+	//var ccvNum = '123';
+	var ccvNum = '303';
+	var ccExpMonth = 8;
+	var ccExpYear = 2019;
+	var subCatPage1 = 'cookware/dutch-ovens/';
+	var subCatPage2 = 'bakeware/individual-servings/';
+	var subCatPage3 = 'kitchen-tools/cutlery/';
+	var subCatPage4 = 'tabletop/serveware/';
+
 
 	this.getLocalDomain = function() {
 		return localDomain;
@@ -184,5 +193,29 @@ function Data() {
 
 	this.getCcvNum = function() {
 		return ccvNum;
+	};
+
+	this.getCCExpMonth = function() {
+		return ccExpMonth;
+	};
+
+	this.getCCExpYear = function() {
+		return ccExpYear;
+	};
+
+	this.getSubCatPage1 = function() {
+		return subCatPage1;
+	};
+
+	this.getSubCatPage2 = function() {
+		return subCatPage2;
+	};
+
+	this.getSubCatPage3 = function() {
+		return subCatPage3;
+	};
+
+	this.getSubCatPage4 = function() {
+		return subCatPage4;
 	};
 };
