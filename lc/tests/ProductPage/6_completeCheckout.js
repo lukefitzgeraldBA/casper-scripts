@@ -20,6 +20,7 @@ phantom.injectJs('../../utilities/CommonTests.js');
 phantom.injectJs('../../pos/SimpleProductPage.js');
 phantom.injectJs('../../pos/Checkout.js');
 phantom.injectJs('../../pos/Header.js');
+phantom.injectJs('../../pos/OrderSuccessPage.js');
 
 //product page suite testing
 /*phantom.injectJs('../data/Data.js');
@@ -29,7 +30,8 @@ phantom.injectJs('../utilities/Screenshot.js');
 phantom.injectJs('../utilities/CommonTests.js');
 phantom.injectJs('../pos/SimpleProductPage.js');
 phantom.injectJs('../pos/Checkout.js');
-phantom.injectJs('../pos/Header.js');*/
+phantom.injectJs('../pos/Header.js');
+phantom.injectJs('../pos/OrderSuccessPage.js');*/
 
 var d = new Data();
 var start = new Start();
@@ -39,9 +41,11 @@ var ct = new CommonTests();
 var checkout = new Checkout();
 var spp = new SimpleProductPage();
 var header = new Header();
+var osp = new OrderSuccessPage();
 
 casper.test.begin('Add simple product to cart', 13, function(test) {
 	var productName;
+	var orderNum;
 	casper.options.viewportSize = {width:d.getDesktopBrowserWidth(), height:d.getBrowserHeight()};
 	casper.options.waitTimeout = 10000;
 
@@ -139,7 +143,16 @@ casper.test.begin('Add simple product to cart', 13, function(test) {
 		this.sendKeys(checkout.getCcvNum(), d.getCcvNum());
 
 		//entire cc expiration date
+		this.evaluate(function() {
+			$('#braintree_expiration').value = d.getCCExpMonth;
+		});
+
+		this.evaluate(function() {
+			$('#braintree_expiration_yr').value = d.getCCExpYear;
+		});
 	});
+
+	//casper.wait(5000);
 
 	casper.then(function() {
 		this.click(checkout.getPaymentInfoContinueButton());
@@ -152,6 +165,12 @@ casper.test.begin('Add simple product to cart', 13, function(test) {
 		ct.assertVisible(checkout.getOrderReviewBlock());
 	});
 
+	//this scroll was for testing purposes only
+	casper.then(function() {
+		//scroll down page, just to see what is happening
+		this.scrollTo(0, 500);
+	});
+
 	casper.then(function() {
 		this.click(checkout.getSubmitOrderButton());
 	});
@@ -161,6 +180,15 @@ casper.test.begin('Add simple product to cart', 13, function(test) {
 	//
 	//Order Success Page tests
 	//
+
+	casper.waitUntilVisible(osp.getHeading(), function() {
+		casper.waitForText('THANK YOU FOR YOUR PURCHASE!', function() {
+			this.echo(this.fetchText(osp.getOrderNum()));
+			orderNum = this.fetchText(osp.getOrderNum());
+		});
+	});
+
+	casper.wait(5000);
 
 	ct.clearCookies();
 

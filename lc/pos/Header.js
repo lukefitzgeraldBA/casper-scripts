@@ -37,6 +37,8 @@ function Header() {
 	var miniCartProductsQty = '#cart-sidebar > li > div > div > div > span.qty-wrapper';
 	var miniCartProductsPrice = '#cart-sidebar > li > div > div > div > span.info-wrappe';
 	var miniCartProductsOptions = '#cart-sidebar > li.item.odd > div > div > p.item-options > span';
+	var navListElementDesktop = '#nav > ul > li.level0.level-top';
+	var navListElementMobile = '#nav > ul > li.level0.mobile'; 
 
 	this.getLogo = function(){
 		return logo;
@@ -128,5 +130,13 @@ function Header() {
 
 	this.getMiniCartProductsOptions = function() {
 		return miniCartProductsOptions;
+	};
+
+	this.getNavListElementDesktop = function() {
+		return navListElementDesktop;
+	};
+
+	this.getNavListElementMobile = function() {
+		return navListElementMobile;
 	};
 };
